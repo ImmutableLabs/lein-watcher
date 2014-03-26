@@ -1,6 +1,6 @@
 # lein-watch
 
-A Leiningen plugin to watch and run clojure files which are meant to compiled to another file type. For example: generating html from [hiccup](https://github.com/weavejester/hiccup) or creating .csvs from clojure code.
+A Leiningen plugin to watch and run clojure files which are meant to compiled to another file type. For example: generating html from [hiccup](https://github.com/weavejester/hiccup), Creating css from [garden](https://github.com/noprompt/garden), or creating .csv from clojure code.
 
 ## Usage
 
