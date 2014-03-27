@@ -1,4 +1,4 @@
-(ns leiningen.watch
+(ns leiningen.watcher
   (:require [filevents.core :as filevents])
   (:use [clojure.core.async :only [chan <! <!! put! go]]))
 ;; Code is based off of hiccup watch
@@ -19,8 +19,7 @@
                      target)
     output-chan))
 
-
-(defn watch [project & args]
+(defn watcher [project & args]
   (let [{input-dir :input-dir 
          output-dir :output-dir
          output-type :output-type} (project :lein-watch)]
