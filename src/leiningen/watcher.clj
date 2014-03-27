@@ -1,12 +1,16 @@
 (ns leiningen.watcher
-  (:require [filevents.core :as filevents])
+  (:require [filevents.core :as filevents]
+            [leiningen.core.eval :as eval])
   (:use [clojure.core.async :only [chan <! <!! put! go]]))
 ;; Code is based off of hiccup watch
 ;;  https://github.com/twashing/hiccup-watch
 
 
-(defn output [from-path to-path]
-  (spit to-path ((load-file from-path))))
+(defn output [from-path to-path project]
+  (eval/eval-in-project 
+    project
+    `(spit ~to-path ((load-file ~from-path)))))
+
 
 (def starting-string "Lein-watch starting")
 (def configuration-failure  "ERROR: both :input-dir and :output-dir not defined in 'project.clj' Exiting")
@@ -38,4 +42,4 @@
                                      java.io.File/separator
                                      filename "." output-type)]
                     (println "Outputing" sourcepath "to" newname)
-                    (output sourcepath newname))))))))))
+                    (output sourcepath newname project))))))))))

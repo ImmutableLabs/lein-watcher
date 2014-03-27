@@ -1,4 +1,4 @@
-(defproject lein-watcher "0.2.1"
+(defproject lein-watcher "0.2.2"
   :description "Watchs files in a directory and executes them on change dumping the 
                results into a new file in a target directory."
   :url "http://github.com/immutablelabs/lein-watcher"

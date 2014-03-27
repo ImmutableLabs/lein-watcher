@@ -5,7 +5,7 @@ A Leiningen plugin to watch and run clojure files which are meant to compiled to
 ## Usage
 
 
-Put `[lein-watcher "0.2.1"]` into the `:plugins` vector of your project.clj.
+Put `[lein-watcher "0.2.2"]` into the `:plugins` vector of your project.clj.
 
 Add a configuration to your project.clj specifying the directory to watch, where to place the output and what filetype they should appear as.
 ```
