@@ -9,7 +9,13 @@
 (defn output [from-path to-path project]
   (eval/eval-in-project 
     project
-    `(spit ~to-path ((load-file ~from-path)))))
+    `(spit ~to-path 
+           (try
+             ((load-file ~from-path))
+             (catch Exception e#
+               (do 
+                 (println (str "Error Caught executign file:" ~to-path))
+                 (.printStackTrace e#)))))))
 
 
 (def starting-string "Lein-watch starting")
